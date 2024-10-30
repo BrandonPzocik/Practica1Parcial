@@ -184,6 +184,18 @@ export function navbar(session = null) {
     logoutButton.textContent = "Logout";
 
     logoutButton.addEventListener("click", () => {
+      fetch("http://localhost:4321/auth/sign-out", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        if (response.ok) {
+          // ! REDIRIGIR AL USUARIO A LA PÁGINA PRINCIPAL
+          window.location.href = "/pages/index.html";
+        }
+      });
       // ! HACER EL LOGOUT DEL USUARIO Y REDIRIGIR A LA PÁGINA DE LOGIN
     });
 

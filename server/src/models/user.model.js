@@ -1,7 +1,7 @@
 import { hash, genSalt, compare } from "bcrypt";
 import crypto from "crypto";
 
-const usersCollection = [];
+export const usersCollection = [];
 
 // Función para crear un usuario
 export const createUser = async (user) => {

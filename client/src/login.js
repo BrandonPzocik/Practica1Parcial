@@ -17,6 +17,7 @@ $form.addEventListener("submit", async (e) => {
   // Realizar una solicitud POST a la API de inicio de sesión
   fetch("http://localhost:4321/auth/sign-in", {
     method: "POST",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
@@ -24,8 +25,10 @@ $form.addEventListener("submit", async (e) => {
   }).then((response) => {
     if (response.ok) {
       // ! REDIRIGIR AL USUARIO A LA PÁGINA PRINCIPAL
+      window.location.href = "/pages/index.html";
     } else {
       // ! MOSTRAR UN MENSAJE DE ERROR AL USUARIO
+      alert("Error al iniciar sesión");
     }
   });
 });
